@@ -1,15 +1,15 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { LayoutVerticalComponent } from '@lib/components';
 import { AuthService } from '@lib/services';
 import { ThemeService } from '@lib/services/theme';
 import { Observable } from 'rxjs';
-import { LayoutHorizontalComponent } from './lib/components/layouts/layout-horizontal/layout-horizontal.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterModule, LayoutHorizontalComponent],
+  imports: [CommonModule, RouterModule, LayoutVerticalComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })

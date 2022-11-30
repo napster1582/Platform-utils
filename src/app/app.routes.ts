@@ -28,6 +28,11 @@ export const routes: Routes = [
     canLoad: [AuthGuard],
   },
   {
+    path: 'templates',
+    loadChildren: async () => (await import('@pages/templates/templates.routes')).ROUTES,
+    canLoad: [AuthGuard],
+  },
+  {
     path: '**',
     loadComponent: async () => (await import('@pages/screens/not-found/not-found.page')).NotFoundPage,
   },
