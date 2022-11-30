@@ -7,8 +7,7 @@ module.exports = {
       body: ['Poppins', 'sans-serif'],
     },
     container: {
-      center: true,
-      padding: '1.5rem',
+      padding: '3.5rem',
     },
     extend: {
       colors: {

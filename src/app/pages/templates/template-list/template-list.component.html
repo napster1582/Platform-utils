@@ -1,1 +1,37 @@
-<div class="p-14 w-full h-screen">Agregar templates</div>
+<div class="w-full h-screen container py-10">
+  <h1
+    class="
+      mb-4
+      text-4xl
+      font-extrabold
+      text-dark-500
+      dark:text-white
+      md:text-5xl
+      lg:text-4xl
+      border-b border-b-sky-800
+    "
+  >
+    <span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">Templates</span>
+    Botzy
+  </h1>
+
+  <!-- (onToolbarPreparing)="onToolbarPreparing($event)"
+  (onRowUpdated)="onRowUpdatingEvaluacion($event)"
+  (onRowInserted)="onRowUpdatingEvaluacion($event)"
+  (onRowRemoved)="onRowRemovedEvaluacion($event)" -->
+
+  <div class="mt-10">
+    <dx-data-grid [dataSource]="[{ templateName: 'Prueba' }]" [wordWrapEnabled]="true" [showBorders]="true">
+      <dxo-editing mode="popup" [allowUpdating]="true" [allowDeleting]="true" [allowAdding]="true">
+      </dxo-editing>
+      <dxi-column dataField="templateName" caption="Nombre template"
+        ><dxi-validation-rule type="required"></dxi-validation-rule
+      ></dxi-column>
+      <dxi-column type="buttons">
+        <dxi-button text="Editar" name="edit"></dxi-button>
+        <dxi-button text="Eliminar" name="delete"></dxi-button>
+        <dxi-button text="Parametros" icon="codeblock"></dxi-button>
+      </dxi-column>
+    </dx-data-grid>
+  </div>
+</div>

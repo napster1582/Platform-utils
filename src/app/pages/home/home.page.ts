@@ -2,11 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AppTheme, ThemeService } from '@lib/services/theme';
+import { DxDataGridModule } from 'devextreme-angular';
 import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, DxDataGridModule],
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.css'],
 })
