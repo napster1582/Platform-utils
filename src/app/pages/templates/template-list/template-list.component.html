@@ -62,7 +62,7 @@
         <dxi-validation-rule type="required" message="Campo requerido"></dxi-validation-rule>
       </dxi-column>
 
-      <dxi-column dataField="language" caption="Lenguaje">
+      <dxi-column dataField="language" caption="Lenguaje" cellTemplate="cellTemplate">
         <dxo-lookup [dataSource]="languages" valueExpr="language" displayExpr="name"></dxo-lookup>
         <dxi-validation-rule type="required" message="Campo requerido"></dxi-validation-rule>
       </dxi-column>
@@ -79,6 +79,12 @@
         <dxi-button text="Eliminar" name="delete"></dxi-button>
       </dxi-column>
       <!-- columns config end -->
+      <!-- templates -->
+      <div *dxTemplate="let data of 'cellTemplate'">
+        <div>
+          <span class="block w-2/4 text-center p-2 rounded-full bg-success-500">ES</span>
+        </div>
+      </div>
     </dx-data-grid>
   </div>
 </div>

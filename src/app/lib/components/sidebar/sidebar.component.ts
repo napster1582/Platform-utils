@@ -19,4 +19,8 @@ export class SidebarComponent implements OnInit {
     this.authService.logout();
     this._router.navigateByUrl('/auth/login');
   }
+
+  onClickTemplate(): void {
+    this._router.navigateByUrl('/templates/list');
+  }
 }

@@ -83,15 +83,15 @@ export class TemplatesService {
     this.categories = [
       {
         id: 1,
-        category: 'Marketing',
+        category: 'Auto Reply',
       },
       {
         id: 2,
-        category: 'Transactional',
+        category: 'Actualización de alertas',
       },
       {
         id: 3,
-        category: 'Auto-Reply',
+        category: 'Actualización de pago',
       },
       {
         id: 4,
@@ -99,7 +99,43 @@ export class TemplatesService {
       },
       {
         id: 5,
+        category: 'Alert_Update',
+      },
+      {
+        id: 6,
+        category: 'APPOINTMENT_UPDATE',
+      },
+      {
+        id: 7,
+        category: 'Auto-Reply',
+      },
+      {
+        id: 8,
+        category: 'Category',
+      },
+      {
+        id: 9,
+        category: 'Issue Resolution',
+      },
+      {
+        id: 10,
+        category: 'Marketing',
+      },
+      {
+        id: 11,
+        category: 'Shipping Update',
+      },
+      {
+        id: 12,
+        category: 'Ticket Update',
+      },
+      {
+        id: 13,
         category: 'Transaccional',
+      },
+      {
+        id: 14,
+        category: 'TRANSACTIONAL',
       },
     ];
 
