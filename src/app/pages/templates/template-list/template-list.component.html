@@ -1,4 +1,4 @@
-<div class="w-full h-screen container py-10">
+<div class="w-full container py-10">
   <h1
     class="
       mb-4
@@ -15,23 +15,70 @@
     Botzy
   </h1>
 
-  <!-- (onToolbarPreparing)="onToolbarPreparing($event)"
-  (onRowUpdated)="onRowUpdatingEvaluacion($event)"
+  <!-- (onRowUpdated)="onRowUpdatingEvaluacion($event)"
   (onRowInserted)="onRowUpdatingEvaluacion($event)"
-  (onRowRemoved)="onRowRemovedEvaluacion($event)" -->
+  (onRowRemoved)="onRowRemovedEvaluacion($event)"  -->
 
   <div class="mt-10">
-    <dx-data-grid [dataSource]="[{ templateName: 'Prueba' }]" [wordWrapEnabled]="true" [showBorders]="true">
+    <dx-data-grid
+      [dataSource]="templates"
+      [wordWrapEnabled]="true"
+      [showBorders]="true"
+      (onToolbarPreparing)="onToolbarPreparing($event)"
+    >
+      <!-- editing options -->
       <dxo-editing mode="popup" [allowUpdating]="true" [allowDeleting]="true" [allowAdding]="true">
       </dxo-editing>
-      <dxi-column dataField="templateName" caption="Nombre template"
-        ><dxi-validation-rule type="required"></dxi-validation-rule
-      ></dxi-column>
+      <!-- editing options end -->
+
+      <!-- opciones -->
+      <dxo-search-panel [visible]="true" [width]="300"></dxo-search-panel>
+      <dxo-header-filter [visible]="true"></dxo-header-filter>
+      <dxo-sorting mode="multiple"></dxo-sorting>
+      <dxo-paging [pageSize]="5"></dxo-paging>
+      <dxo-pager [showPageSizeSelector]="true" [allowedPageSizes]="[5, 10, 15]" [showInfo]="true">
+      </dxo-pager>
+      <!-- opciones end -->
+
+      <!-- columns data -->
+      <dxi-column dataField="pageId" [width]="100" caption="Page">
+        <dxi-validation-rule type="required" message="Campo obligatorio"> </dxi-validation-rule>
+      </dxi-column>
+      <dxi-column dataField="name" caption="Nombre template">
+        <dxi-validation-rule type="required" message="Campo obligatorio"> </dxi-validation-rule>
+      </dxi-column>
+      <dxi-column dataField="description" caption="Descripción">
+        <dxo-form-item
+          [colSpan]="2"
+          editorType="dxTextArea"
+          [editorOptions]="{ autoResizeEnabled: true, maxHeight: 500, minHeight: 200 }"
+        >
+        </dxo-form-item>
+        <dxi-validation-rule type="required" message="Campo obligatorio"> </dxi-validation-rule>
+      </dxi-column>
+
+      <dxi-column dataField="category" caption="Categoría">
+        <dxo-lookup [dataSource]="categories" valueExpr="category" displayExpr="category"></dxo-lookup>
+        <dxi-validation-rule type="required" message="Campo requerido"></dxi-validation-rule>
+      </dxi-column>
+
+      <dxi-column dataField="language" caption="Lenguaje">
+        <dxo-lookup [dataSource]="languages" valueExpr="language" displayExpr="name"></dxo-lookup>
+        <dxi-validation-rule type="required" message="Campo requerido"></dxi-validation-rule>
+      </dxi-column>
+
+      <!-- <dxi-column dataField="category" caption="Categoría"></dxi-column> -->
+      <!-- <dxi-column dataField="language" caption="Lenguaje"></dxi-column> -->
+      <!-- columns data end -->
+
+      <!-- columns config -->
       <dxi-column type="buttons">
         <dxi-button text="Editar" name="edit"></dxi-button>
-        <dxi-button text="Eliminar" name="delete"></dxi-button>
+        <dxi-button text="Ver descripción" icon="info"></dxi-button>
         <dxi-button text="Parametros" icon="codeblock"></dxi-button>
+        <dxi-button text="Eliminar" name="delete"></dxi-button>
       </dxi-column>
+      <!-- columns config end -->
     </dx-data-grid>
   </div>
 </div>
