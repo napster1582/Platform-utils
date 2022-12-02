@@ -73,10 +73,10 @@
 
       <!-- columns config -->
       <dxi-column type="buttons">
+        <dxi-button text="Parametros" icon="codeblock" [onClick]="onClickParams"></dxi-button>
         <dxi-button text="Editar" name="edit"></dxi-button>
-        <dxi-button text="Ver descripción" icon="info"></dxi-button>
-        <dxi-button text="Parametros" icon="codeblock"></dxi-button>
         <dxi-button text="Eliminar" name="delete"></dxi-button>
+        <dxi-button text="Ver descripción" icon="info" [onClick]="onClickInfoTemplate"></dxi-button>
       </dxi-column>
       <!-- columns config end -->
       <!-- templates -->
@@ -88,3 +88,73 @@
     </dx-data-grid>
   </div>
 </div>
+
+<dx-popup
+  class="popup"
+  [closeOnOutsideClick]="true"
+  [maxWidth]="800"
+  [maxHeight]="550"
+  [showTitle]="true"
+  [dragEnabled]="false"
+  [(visible)]="visibleModalParams"
+  title="Parametros del template"
+>
+  <dx-scroll-view>
+    <dx-data-grid [dataSource]="templateParams" [wordWrapEnabled]="true" [showBorders]="true">
+      <!-- editing options -->
+      <dxo-editing mode="form" [allowUpdating]="true" [allowDeleting]="true" [allowAdding]="true">
+      </dxo-editing>
+      <!-- editing options end -->
+
+      <!-- opciones -->
+      <dxo-search-panel [visible]="true" [width]="300"></dxo-search-panel>
+      <dxo-header-filter [visible]="true"></dxo-header-filter>
+      <dxo-sorting mode="multiple"></dxo-sorting>
+      <!-- opciones end -->
+
+      <!-- columns data -->
+
+      <dxi-column dataField="templateParameterTypeId" caption="Tipo">
+        <dxo-lookup
+          [dataSource]="templateParamType"
+          valueExpr="templateParameterTypeId"
+          displayExpr="code"
+        ></dxo-lookup>
+        <dxi-validation-rule type="required" message="Campo requerido"></dxi-validation-rule>
+      </dxi-column>
+
+      <dxi-column dataField="templateParameterSectionId" caption="Sección">
+        <dxo-lookup
+          [dataSource]="templateParamSection"
+          valueExpr="templateParameterSectionId"
+          displayExpr="code"
+        ></dxo-lookup>
+        <dxi-validation-rule type="required" message="Campo requerido"></dxi-validation-rule>
+      </dxi-column>
+
+      <dxi-column dataField="position" caption="Posición">
+        <dxo-lookup
+          [dataSource]="templateParamPosition"
+          valueExpr="position"
+          displayExpr="position"
+        ></dxo-lookup>
+        <dxi-validation-rule type="required" message="Campo requerido"></dxi-validation-rule>
+      </dxi-column>
+
+      <!-- columns data end -->
+    </dx-data-grid>
+  </dx-scroll-view>
+</dx-popup>
+
+<dx-popup
+  class="popup"
+  [closeOnOutsideClick]="true"
+  [maxWidth]="600"
+  [maxHeight]="400"
+  [showTitle]="true"
+  [dragEnabled]="false"
+  [(visible)]="visibleModalInfo"
+  title="Descripción del Template"
+>
+  <span>{{ templateInfo }}</span>
+</dx-popup>
