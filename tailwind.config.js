@@ -82,5 +82,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require(path.resolve(__dirname, 'src/theme/tailwind/utilities'))],
 };

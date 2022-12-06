@@ -37,6 +37,7 @@ specifiers:
   karma-coverage: ~2.2.0
   karma-jasmine: ~5.0.0
   karma-jasmine-html-reporter: ~1.7.0
+  ngx-grs: ^0.1.1
   postcss: ^8.4.14
   prettier: 2.4.1
   prettier-eslint: 13.0.0
@@ -57,6 +58,7 @@ dependencies:
   '@angular/router': 14.0.1_djxcemkp7pbjrbje27yixgtq2y
   devextreme: 22.1.6
   devextreme-angular: 22.1.6_ug5wpzdg6eqjqalfu2ybjrx5c4
+  ngx-grs: 0.1.1_lq2jwh535o536ywu7wmvu7skkm
   rxjs: 7.4.0
   tslib: 2.4.0
   zone.js: 0.11.5
@@ -6687,6 +6689,17 @@ packages:
   /neo-async/2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
     dev: true
+
+  /ngx-grs/0.1.1_lq2jwh535o536ywu7wmvu7skkm:
+    resolution: {integrity: sha512-foRSOXfvr2iCcuFHBXYkG7XYJz11qJXMVILDyMgOfUsYVYAxI2HnjZTqGtUUJ/K0IP+JmWGnFFmqmfo5Qj0D+A==}
+    peerDependencies:
+      '@angular/common': ^11.2.4
+      '@angular/core': ^11.2.4
+    dependencies:
+      '@angular/common': 14.0.1_2mk2qgs2cybau4wchf6vz64jrm
+      '@angular/core': 14.0.1_rxjs@7.4.0+zone.js@0.11.5
+      tslib: 2.4.0
+    dev: false
 
   /nice-napi/1.0.2:
     resolution: {integrity: sha512-px/KnJAJZf5RuBGcfD+Sp2pAKq0ytz8j+1NehvgIGFkvtvFrDM3T8E4x/JJODXK9WZow8RRGrbA9QQ3hs+pDhA==}

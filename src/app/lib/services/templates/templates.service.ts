@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { environment } from '@env/environment';
 import { CategoriesModel } from '@lib/models/templates/categories.model';
 import { LanguageModel } from '@lib/models/templates/language.model';
 import { TemplateParamPositionModel } from '@lib/models/templates/template-param-position.model';
@@ -6,11 +7,13 @@ import { TemplateParamSectionModel } from '@lib/models/templates/template-param-
 import { TemplateParamTypeModel } from '@lib/models/templates/template-param-type.model';
 import { TemplateParamModel } from '@lib/models/templates/template-param.model';
 import { TemplateModel } from '@lib/models/templates/template.model';
+import { NgxGenericRestService } from 'ngx-grs';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
-export class TemplatesService {
+export class TemplatesService extends NgxGenericRestService {
   templates: TemplateModel[] = [];
   categories: CategoriesModel[] = [];
   languages: LanguageModel[] = [];
@@ -20,6 +23,11 @@ export class TemplatesService {
   templateParamPosition: TemplateParamPositionModel[] = [];
 
   constructor() {
+    super({
+      baseUrl: environment.apiUrl,
+      resourceName: 'Templates',
+    });
+
     this.templates = [
       {
         templateId: 35,
@@ -312,5 +320,30 @@ export class TemplatesService {
 
   getTemplateParamPosition() {
     return this.templateParamPosition;
+  }
+
+  private getAllTemplates(): Observable<TemplateModel[]> {
+    return this.list<TemplateModel[]>({
+      urlPostfix: 'GetAllTemplates',
+      mapFn: ({ result }) => result || [],
+    });
+  }
+  private getTemplateParams1(): Observable<TemplateParamModel[]> {
+    return this.list<TemplateParamModel[]>({
+      urlPostfix: 'GetParameters',
+      mapFn: ({ result }) => result || [],
+    });
+  }
+  private getTemplateParamSection1(): Observable<TemplateParamSectionModel[]> {
+    return this.list<TemplateParamSectionModel[]>({
+      urlPostfix: 'GetParametersSection',
+      mapFn: ({ result }) => result || [],
+    });
+  }
+  private getTemplateParamType1(): Observable<TemplateParamTypeModel[]> {
+    return this.list<TemplateParamTypeModel[]>({
+      urlPostfix: 'GetParametersType',
+      mapFn: ({ result }) => result || [],
+    });
   }
 }

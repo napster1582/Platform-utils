@@ -62,9 +62,9 @@ export class TemplateListComponent implements OnInit {
         item.showText = 'always';
         item.options.stylingMode = 'contained';
         item.options.type = 'default';
-        item.options.onClick = () => {
-          // Consultar el ultimo id
-        };
+        // item.options.onClick = () => {
+        //   // Consultar el ultimo id
+        // };
       }
     });
   }
